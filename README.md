@@ -1,1 +1,1 @@
-# open-dam-ts-client
+# Open DAM TS Client
