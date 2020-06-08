@@ -1,8 +1,10 @@
 export * from './apiError';
 export * from './asset';
 export * from './assetFile';
+export * from './assetUpdate';
 export * from './assets';
 export * from './job';
+export * from './kind';
 export * from './version';
 
 import localVarRequest = require('request');
@@ -10,8 +12,10 @@ import localVarRequest = require('request');
 import { ApiError } from './apiError';
 import { Asset } from './asset';
 import { AssetFile } from './assetFile';
+import { AssetUpdate } from './assetUpdate';
 import { Assets } from './assets';
 import { Job } from './job';
+import { Kind } from './kind';
 import { Version } from './version';
 
 /* tslint:disable:no-unused-variable */
@@ -27,14 +31,15 @@ let primitives = [
                  ];
 
 let enumsMap: {[index: string]: any} = {
-        "Asset.KindEnum": Asset.KindEnum,
         "Job.StateEnum": Job.StateEnum,
+        "Kind": Kind,
 }
 
 let typeMap: {[index: string]: any} = {
     "ApiError": ApiError,
     "Asset": Asset,
     "AssetFile": AssetFile,
+    "AssetUpdate": AssetUpdate,
     "Assets": Assets,
     "Job": Job,
     "Version": Version,

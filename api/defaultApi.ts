@@ -16,6 +16,7 @@ import http = require('http');
 /* tslint:disable:no-unused-locals */
 import { ApiError } from '../model/apiError';
 import { Asset } from '../model/asset';
+import { AssetUpdate } from '../model/assetUpdate';
 import { Assets } from '../model/assets';
 import { Job } from '../model/job';
 
@@ -93,7 +94,7 @@ export class DefaultApi {
      * @param assetId 
      */
     public async deleteAsset (assetId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: Job;  }> {
-        const localVarPath = this.basePath + '/asset/{asset_id}'
+        const localVarPath = this.basePath + '/assets/{asset_id}'
             .replace('{' + 'asset_id' + '}', encodeURIComponent(String(assetId)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -161,7 +162,7 @@ export class DefaultApi {
      * @param assetId 
      */
     public async getAsset (assetId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: Asset;  }> {
-        const localVarPath = this.basePath + '/asset/{asset_id}'
+        const localVarPath = this.basePath + '/assets/{asset_id}'
             .replace('{' + 'asset_id' + '}', encodeURIComponent(String(assetId)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -245,7 +246,7 @@ export class DefaultApi {
         let localVarUseFormData = false;
 
         let localVarRequestOptions: localVarRequest.Options = {
-            method: 'POST',
+            method: 'GET',
             qs: localVarQueryParameters,
             headers: localVarHeaderParams,
             uri: localVarPath,
@@ -357,7 +358,7 @@ export class DefaultApi {
      * 
      */
     public async postAsset (options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: Job;  }> {
-        const localVarPath = this.basePath + '/asset';
+        const localVarPath = this.basePath + '/assets';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
         const produces = ['application/json'];
@@ -417,9 +418,10 @@ export class DefaultApi {
     /**
      * 
      * @param assetId 
+     * @param assetUpdate 
      */
-    public async putAsset (assetId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: Job;  }> {
-        const localVarPath = this.basePath + '/asset/{asset_id}'
+    public async putAsset (assetId: string, assetUpdate: AssetUpdate, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: Job;  }> {
+        const localVarPath = this.basePath + '/assets/{asset_id}'
             .replace('{' + 'asset_id' + '}', encodeURIComponent(String(assetId)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -437,6 +439,11 @@ export class DefaultApi {
             throw new Error('Required parameter assetId was null or undefined when calling putAsset.');
         }
 
+        // verify required parameter 'assetUpdate' is not null or undefined
+        if (assetUpdate === null || assetUpdate === undefined) {
+            throw new Error('Required parameter assetUpdate was null or undefined when calling putAsset.');
+        }
+
         (<any>Object).assign(localVarHeaderParams, options.headers);
 
         let localVarUseFormData = false;
@@ -448,6 +455,7 @@ export class DefaultApi {
             uri: localVarPath,
             useQuerystring: this._useQuerystring,
             json: true,
+            body: ObjectSerializer.serialize(assetUpdate, "AssetUpdate")
         };
 
         let authenticationPromise = Promise.resolve();

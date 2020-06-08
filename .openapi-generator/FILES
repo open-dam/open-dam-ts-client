@@ -1,0 +1,15 @@
+.gitignore
+api.ts
+api/apis.ts
+api/defaultApi.ts
+model/./apiError.ts
+model/./asset.ts
+model/./assetFile.ts
+model/./assetUpdate.ts
+model/./assets.ts
+model/./job.ts
+model/./kind.ts
+model/./version.ts
+model/models.ts
+package.json
+tsconfig.json

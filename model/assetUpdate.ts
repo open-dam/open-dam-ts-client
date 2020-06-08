@@ -11,21 +11,16 @@
  */
 
 import { RequestFile } from '../api';
+import { Asset } from './asset';
 import { AssetFile } from './assetFile';
 import { Kind } from './kind';
-import { Version } from './version';
 
 /**
-* An asset is a single managed digital asset
+* A limited view of an asset with only editable fields. Formats, tags, and metadata are merged with any existing values
 */
-export class Asset {
-    /**
-    * The unique id of the asset
-    */
-    'assetId': string;
-    'kind': Kind;
-    'version': Version;
-    'file': AssetFile;
+export class AssetUpdate {
+    'kind'?: Kind;
+    'file'?: AssetFile;
     /**
     * additional assets/files associated with the asset
     */
@@ -43,19 +38,9 @@ export class Asset {
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "assetId",
-            "baseName": "asset_id",
-            "type": "string"
-        },
-        {
             "name": "kind",
             "baseName": "kind",
             "type": "Kind"
-        },
-        {
-            "name": "version",
-            "baseName": "version",
-            "type": "Version"
         },
         {
             "name": "file",
@@ -79,7 +64,7 @@ export class Asset {
         }    ];
 
     static getAttributeTypeMap() {
-        return Asset.attributeTypeMap;
+        return AssetUpdate.attributeTypeMap;
     }
 }
 
