@@ -29,7 +29,6 @@ jobs:
         run: |
           npm config set //npm.pkg.github.com/:_authToken=$NODE_AUTH_TOKEN
           npm config set scope "open-dam"
-          npm version ${REF##*/}
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.PAT }}
