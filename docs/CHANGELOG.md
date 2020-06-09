@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/open-dam/open-dam-ts-client/compare/v1.0.1...v1.0.2) (2020-06-09)
+
+
+### Bug Fixes
+
+* fix package version ([213db35](https://github.com/open-dam/open-dam-ts-client/commit/213db355780ba8dc4f01c87bdf21ae386b0a1741))
+
 ## [1.0.1](https://github.com/open-dam/open-dam-ts-client/compare/v1.0.0...v1.0.1) (2020-06-09)
 
 
