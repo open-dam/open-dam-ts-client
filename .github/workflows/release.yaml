@@ -32,4 +32,4 @@ jobs:
           npm version ${REF##*/}
           npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_SECRET }}
+          NODE_AUTH_TOKEN: ${{ secrets.PAT }}
