@@ -1,6 +1,6 @@
 {
     "name": "@open-dam/open-dam-ts-client",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "NodeJS client for @open-dam/open-dam-api",
     "repository": "open-dam/open-dam-ts-client",
     "main": "dist/api.js",

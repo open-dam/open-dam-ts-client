@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/open-dam/open-dam-ts-client/compare/v1.0.0...v1.0.1) (2020-06-09)
+
+
+### Bug Fixes
+
+* use github token ([f0604fa](https://github.com/open-dam/open-dam-ts-client/commit/f0604fa3949a3a69c034b12757a6627a8fa8a9cb))
+
 # 1.0.0 (2020-06-09)
 
 
