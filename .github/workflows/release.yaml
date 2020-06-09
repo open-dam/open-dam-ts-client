@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
       - name: Node Setup
         uses: actions/setup-node@v1
@@ -21,13 +21,11 @@ jobs:
           scope: "@open-dam"
 
       - name: Build Client
-        working-directory: client/ts
         run: |
           npm install
           npm run build
 
       - name: Publish Client
-        working-directory: client/ts
         run: |
           npm config set //npm.pkg.github.com/:_authToken=$NODE_AUTH_TOKEN
           npm config set scope "open-dam"
