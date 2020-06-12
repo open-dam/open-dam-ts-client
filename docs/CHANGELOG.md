@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/open-dam/open-dam-ts-client/compare/v1.0.3...v1.0.4) (2020-06-12)
+
+
+### Bug Fixes
+
+* update task schema ([dc16866](https://github.com/open-dam/open-dam-ts-client/commit/dc1686699ee79e081e9bd5e203f39d5467e272af))
+
 ## [1.0.3](https://github.com/open-dam/open-dam-ts-client/compare/v1.0.2...v1.0.3) (2020-06-12)
 
 
