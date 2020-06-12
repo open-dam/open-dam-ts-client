@@ -11,7 +11,7 @@ model/./assets.ts
 model/./job.ts
 model/./jobCreate.ts
 model/./kind.ts
-model/./tasks.ts
+model/./task.ts
 model/./version.ts
 model/models.ts
 tsconfig.json

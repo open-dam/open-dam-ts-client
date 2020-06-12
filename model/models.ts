@@ -7,7 +7,7 @@ export * from './assets';
 export * from './job';
 export * from './jobCreate';
 export * from './kind';
-export * from './tasks';
+export * from './task';
 export * from './version';
 
 import localVarRequest = require('request');
@@ -21,7 +21,7 @@ import { Assets } from './assets';
 import { Job } from './job';
 import { JobCreate } from './jobCreate';
 import { Kind } from './kind';
-import { Tasks } from './tasks';
+import { Task } from './task';
 import { Version } from './version';
 
 /* tslint:disable:no-unused-variable */
@@ -50,7 +50,7 @@ let typeMap: {[index: string]: any} = {
     "Assets": Assets,
     "Job": Job,
     "JobCreate": JobCreate,
-    "Tasks": Tasks,
+    "Task": Task,
     "Version": Version,
 }
 

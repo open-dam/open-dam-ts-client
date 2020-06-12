@@ -11,25 +11,36 @@
  */
 
 import { RequestFile } from '../api';
-import { Task } from './task';
 
 /**
-* The task information for a workflow
+* a task to perform on an asset
 */
-export class JobCreate {
-    'tasks'?: Array<Task>;
+export class Task {
+    /**
+    * The name of the task
+    */
+    'task'?: string;
+    /**
+    * An array of arguments to use for the task, if left empty will use the results of the previous task. must match the expected arguments for the requested task.
+    */
+    'args'?: Array<string>;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "tasks",
-            "baseName": "tasks",
-            "type": "Array<Task>"
+            "name": "task",
+            "baseName": "task",
+            "type": "string"
+        },
+        {
+            "name": "args",
+            "baseName": "args",
+            "type": "Array<string>"
         }    ];
 
     static getAttributeTypeMap() {
-        return JobCreate.attributeTypeMap;
+        return Task.attributeTypeMap;
     }
 }
 
