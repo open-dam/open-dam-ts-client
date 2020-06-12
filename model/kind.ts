@@ -19,5 +19,6 @@ export enum Kind {
     Image = <any> 'image',
     Video = <any> 'video',
     Audio = <any> 'audio',
-    Text = <any> 'text'
+    Text = <any> 'text',
+    Unknown = <any> 'unknown'
 }

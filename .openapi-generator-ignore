@@ -1,3 +1,4 @@
 # OpenAPI Generator Ignore
 
 git_push.sh
+package.json

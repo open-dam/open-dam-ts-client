@@ -1,21 +1,27 @@
 export * from './apiError';
 export * from './asset';
+export * from './assetCreate';
 export * from './assetFile';
 export * from './assetUpdate';
 export * from './assets';
 export * from './job';
+export * from './jobCreate';
 export * from './kind';
+export * from './tasks';
 export * from './version';
 
 import localVarRequest = require('request');
 
 import { ApiError } from './apiError';
 import { Asset } from './asset';
+import { AssetCreate } from './assetCreate';
 import { AssetFile } from './assetFile';
 import { AssetUpdate } from './assetUpdate';
 import { Assets } from './assets';
 import { Job } from './job';
+import { JobCreate } from './jobCreate';
 import { Kind } from './kind';
+import { Tasks } from './tasks';
 import { Version } from './version';
 
 /* tslint:disable:no-unused-variable */
@@ -38,10 +44,13 @@ let enumsMap: {[index: string]: any} = {
 let typeMap: {[index: string]: any} = {
     "ApiError": ApiError,
     "Asset": Asset,
+    "AssetCreate": AssetCreate,
     "AssetFile": AssetFile,
     "AssetUpdate": AssetUpdate,
     "Assets": Assets,
     "Job": Job,
+    "JobCreate": JobCreate,
+    "Tasks": Tasks,
     "Version": Version,
 }
 

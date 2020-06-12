@@ -16,9 +16,11 @@ import http = require('http');
 /* tslint:disable:no-unused-locals */
 import { ApiError } from '../model/apiError';
 import { Asset } from '../model/asset';
+import { AssetCreate } from '../model/assetCreate';
 import { AssetUpdate } from '../model/assetUpdate';
 import { Assets } from '../model/assets';
 import { Job } from '../model/job';
+import { JobCreate } from '../model/jobCreate';
 
 import { ObjectSerializer, Authentication, VoidAuth, Interceptor } from '../model/models';
 
@@ -291,7 +293,7 @@ export class DefaultApi {
      * @param jobId 
      */
     public async getJob (jobId: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: Job;  }> {
-        const localVarPath = this.basePath + '/job/{job_id}'
+        const localVarPath = this.basePath + '/jobs/{job_id}'
             .replace('{' + 'job_id' + '}', encodeURIComponent(String(jobId)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -356,8 +358,9 @@ export class DefaultApi {
     }
     /**
      * 
+     * @param assetCreate 
      */
-    public async postAsset (options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: Job;  }> {
+    public async postAsset (assetCreate: AssetCreate, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: Job;  }> {
         const localVarPath = this.basePath + '/assets';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -370,6 +373,11 @@ export class DefaultApi {
         }
         let localVarFormParams: any = {};
 
+        // verify required parameter 'assetCreate' is not null or undefined
+        if (assetCreate === null || assetCreate === undefined) {
+            throw new Error('Required parameter assetCreate was null or undefined when calling postAsset.');
+        }
+
         (<any>Object).assign(localVarHeaderParams, options.headers);
 
         let localVarUseFormData = false;
@@ -381,6 +389,75 @@ export class DefaultApi {
             uri: localVarPath,
             useQuerystring: this._useQuerystring,
             json: true,
+            body: ObjectSerializer.serialize(assetCreate, "AssetCreate")
+        };
+
+        let authenticationPromise = Promise.resolve();
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
+                } else {
+                    localVarRequestOptions.form = localVarFormParams;
+                }
+            }
+            return new Promise<{ response: http.ClientResponse; body: Job;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "Job");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
+            });
+        });
+    }
+    /**
+     * 
+     * @param jobCreate 
+     */
+    public async postJob (jobCreate: JobCreate, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: Job;  }> {
+        const localVarPath = this.basePath + '/jobs';
+        let localVarQueryParameters: any = {};
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['application/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
+        let localVarFormParams: any = {};
+
+        // verify required parameter 'jobCreate' is not null or undefined
+        if (jobCreate === null || jobCreate === undefined) {
+            throw new Error('Required parameter jobCreate was null or undefined when calling postJob.');
+        }
+
+        (<any>Object).assign(localVarHeaderParams, options.headers);
+
+        let localVarUseFormData = false;
+
+        let localVarRequestOptions: localVarRequest.Options = {
+            method: 'POST',
+            qs: localVarQueryParameters,
+            headers: localVarHeaderParams,
+            uri: localVarPath,
+            useQuerystring: this._useQuerystring,
+            json: true,
+            body: ObjectSerializer.serialize(jobCreate, "JobCreate")
         };
 
         let authenticationPromise = Promise.resolve();
