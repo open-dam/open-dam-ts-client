@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/open-dam/open-dam-ts-client/compare/v1.0.4...v1.0.5) (2020-06-22)
+
+
+### Bug Fixes
+
+* update metadata type ([6459bdc](https://github.com/open-dam/open-dam-ts-client/commit/6459bdc7195a1b43e8422aec9e35b1f0226d3f3d))
+
 ## [1.0.4](https://github.com/open-dam/open-dam-ts-client/compare/v1.0.3...v1.0.4) (2020-06-12)
 
 
