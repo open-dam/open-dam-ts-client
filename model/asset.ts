@@ -31,13 +31,13 @@ export class Asset {
     */
     'formats'?: Array<Asset>;
     /**
-    * A list of metadata tags associated with the asset
+    * A list of metadata tags/classifications associated with the asset
     */
     'tags'?: Array<string>;
     /**
-    * Any user supplied metadata for the asset
+    * Any user supplied or extracted metadata for the asset
     */
-    'metadata'?: { [key: string]: object; };
+    'metadata'?: object;
 
     static discriminator: string | undefined = undefined;
 
@@ -75,7 +75,7 @@ export class Asset {
         {
             "name": "metadata",
             "baseName": "metadata",
-            "type": "{ [key: string]: object; }"
+            "type": "object"
         }    ];
 
     static getAttributeTypeMap() {
